@@ -1,5 +1,5 @@
 {
-  "name": "philosopher-visualizer",
+  "name": "philosophers-visualizer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
