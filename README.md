@@ -1,4 +1,4 @@
-# philosopher-visualizer
+# philosophers-visualizer
 
 Very simple web visualizer for Philosophers (42 school project)
 
