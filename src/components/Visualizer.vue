@@ -88,12 +88,13 @@ export default {
   text-align: center;
 }
 textarea {
-  height: 200px;
+  height: 120px;
   width: 300px;
 }
 button {
-  padding: 6px 10px;
+  padding: 8px 10px;
   margin: 1em;
+  width: 300px;
 }
 #graph {
   overflow-x: scroll;
