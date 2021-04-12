@@ -30,7 +30,7 @@ export default {
         title: 'Philosopher visualizer',
         height: 0,
         width: 0,
-        colors: ['#c73327', '#3b95d3', '#e8c400']
+        colors: ['#fbb4ae', '#b3cde3', '#ccebc5'],
       },
       textData: ''
     };
