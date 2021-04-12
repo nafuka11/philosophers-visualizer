@@ -31,6 +31,7 @@ export default {
         height: 0,
         width: 0,
         colors: ['#fbb4ae', '#b3cde3', '#ccebc5'],
+        avoidOverlappingGridLines: false
       },
       textData: ''
     };
@@ -41,6 +42,7 @@ export default {
         [
           { type: 'string', id: 'Index' },
           { type: 'string', id: 'Action' },
+          { type: 'string', role: 'style' },
           { type: 'number', id: 'Start' },
           { type: 'number', id: 'End' }
         ]
@@ -67,7 +69,7 @@ export default {
           return ;
         }
         newChartData.push(
-          [index, prevAction[index].action, prevAction[index].ms, ms]
+          [index, prevAction[index].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[index].ms, ms]
         )
         prevAction[index] = {
           action: action,
