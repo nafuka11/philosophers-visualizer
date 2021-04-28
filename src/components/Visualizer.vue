@@ -47,7 +47,7 @@ export default {
           { type: 'number', id: 'End' }
         ]
       ]
-      const regex = /^(\d+) (\d+) (is (.*)ing|died)$/;
+      const regex = /^(\d+) (\d+) (is (eat|sleep|think)ing|died)$/;
       let prevAction = {}
       let range = {min: Infinity, max: 0}
       let philoNum = 0
@@ -74,6 +74,14 @@ export default {
         prevAction[index] = {
           action: action,
           ms: ms
+        }
+      })
+      Object.keys(prevAction).forEach((key) => {
+        if (prevAction[key].ms < range.max)
+        {
+          newChartData.push(
+            [key, prevAction[key].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[key].ms, range.max]
+          )
         }
       })
       this.chartOptions.height = philoNum * 40 + 60
