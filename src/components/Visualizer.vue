@@ -76,6 +76,14 @@ export default {
           ms: ms
         }
       })
+      Object.keys(prevAction).forEach((key) => {
+        if (prevAction[key].ms < range.max)
+        {
+          newChartData.push(
+            [key, prevAction[key].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[key].ms, range.max]
+          )
+        }
+      })
       this.chartOptions.height = philoNum * 40 + 60
       this.chartOptions.width = (range.max - range.min) * 0.6
       this.chartData = newChartData.sort((a, b) => a[0] - b[0])
