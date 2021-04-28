@@ -47,7 +47,7 @@ export default {
           { type: 'number', id: 'End' }
         ]
       ]
-      const regex = /^(\d+) (\d+) (is (.*)ing|died)$/;
+      const regex = /^(\d+) (\d+) (is (eat|sleep|think)ing|died)$/;
       let prevAction = {}
       let range = {min: Infinity, max: 0}
       let philoNum = 0
