@@ -77,7 +77,7 @@ export default {
         }
       })
       Object.keys(prevAction).forEach((key) => {
-        if (prevAction[key].ms < range.max)
+        if (prevAction[key].ms < range.max && prevAction[key].action)
         {
           newChartData.push(
             [key, prevAction[key].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[key].ms, range.max]
