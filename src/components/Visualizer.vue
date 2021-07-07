@@ -4,6 +4,9 @@
     <textarea v-model="textData" placeholder="timestamp_in_ms X status" />
     <br />
     <button @click="generateData">generate</button>
+    <div class="warn" v-if="warningMessage">
+      {{ warningMessage }}
+    </div>
     <div id="graph" v-if="chartData.length > 1">
       <GChart
         :settings="{ packages: ['timeline'] }"
@@ -33,11 +36,13 @@ export default {
         colors: ['#fbb4ae', '#b3cde3', '#ccebc5'],
         avoidOverlappingGridLines: false
       },
-      textData: ''
+      textData: '',
+      warningMessage: ''
     };
   },
   methods: {
     generateData() {
+      this.warningMessage = '';
       let newChartData = [
         [
           { type: 'string', id: 'Index' },
@@ -68,9 +73,14 @@ export default {
           }
           return ;
         }
-        newChartData.push(
-          [index, prevAction[index].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[index].ms, ms]
-        )
+        if (prevAction[index].action)
+        {
+          newChartData.push(
+            [index, prevAction[index].action, 'stroke-width: 0.5; stroke-color: #000000; stroke-opacity: 0.55', prevAction[index].ms, ms]
+          )
+        } else {
+          this.warningMessage += `Philosopher ${index} is already dead (time: ${prevAction[index].ms})\r\n`
+        }
         prevAction[index] = {
           action: action,
           ms: ms
@@ -109,5 +119,10 @@ button {
 #graph {
   overflow-x: scroll;
   width: 100%;
+}
+
+.warn {
+  color: red;
+  white-space: pre-wrap;
 }
 </style>
