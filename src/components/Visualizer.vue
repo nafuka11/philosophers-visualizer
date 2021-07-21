@@ -1,11 +1,13 @@
 <template>
   <div id="visualizer">
-    <h1>Philosophers visualizer</h1>
-    <textarea v-model="textData" placeholder="timestamp_in_ms X status" />
-    <br />
-    <button @click="generateData">generate</button>
-    <div class="warn" v-if="warningMessage">
-      {{ warningMessage }}
+    <div id="input">
+      <h1>Philosophers visualizer</h1>
+      <textarea v-model="textData" placeholder="timestamp_in_ms X status" />
+      <br />
+      <button @click="generateData">generate</button>
+      <div class="warn" v-if="warningMessage">
+        {{ warningMessage }}
+      </div>
     </div>
     <div id="graph" v-if="chartData.length > 1">
       <GChart
@@ -94,7 +96,7 @@ export default {
           )
         }
       })
-      this.chartOptions.height = philoNum * 40 + 60
+      this.chartOptions.height = philoNum * 40 + 240
       this.chartOptions.width = (range.max - range.min) * 0.6
       this.chartData = newChartData.sort((a, b) => a[0] - b[0])
     }
@@ -105,7 +107,18 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #visualizer {
+  height: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#input {
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 textarea {
   height: 120px;
@@ -117,12 +130,21 @@ button {
   width: 300px;
 }
 #graph {
-  overflow-x: scroll;
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: scroll;
   width: 100%;
+  padding: 8px;
 }
 
 .warn {
   color: red;
   white-space: pre-wrap;
+}
+</style>
+<style>
+#graph div {
+  overflow-y: hidden !important;
 }
 </style>
