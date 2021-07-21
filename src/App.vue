@@ -16,4 +16,19 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+#app {
+  height: 100%;
+  overflow: hidden;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 </style>
