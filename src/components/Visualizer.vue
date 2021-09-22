@@ -97,7 +97,7 @@ export default {
         }
       })
       this.chartOptions.height = philoNum * 40 + 240
-      this.chartOptions.width = (range.max - range.min) * 0.6
+      this.chartOptions.width = Math.max((range.max - range.min) * 0.6, 180)
       this.chartData = newChartData.sort((a, b) => a[0] - b[0])
     }
   }
