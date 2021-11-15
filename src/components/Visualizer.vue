@@ -55,7 +55,7 @@ export default {
         ]
       ]
       const regex = /^(\d+) (\d+) (is (eat|sleep|think)ing|died)$/
-      const forkRegex = /^\d+ \d+ has taken a fork/
+      const forkRegex = /^\d+ \d+ has taken a fork$/
       let prevAction = {}
       let range = {min: Infinity, max: 0}
       let philoNum = 0
