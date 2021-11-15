@@ -63,7 +63,7 @@ export default {
         const found = line.match(regex)
         if (!found) {
           const forkFound = line.match(forkRegex)
-          if (!forkFound)
+          if (line && !forkFound)
             this.warningMessage = `Invalid log format: "${line}"`
           return
         }
