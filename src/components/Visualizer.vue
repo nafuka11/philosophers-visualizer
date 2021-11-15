@@ -54,14 +54,19 @@ export default {
           { type: 'number', id: 'End' }
         ]
       ]
-      const regex = /^(\d+) (\d+) (is (eat|sleep|think)ing|died)$/;
+      const regex = /^(\d+) (\d+) (is (eat|sleep|think)ing|died)$/
+      const forkRegex = /^\d+ \d+ has taken a fork/
       let prevAction = {}
       let range = {min: Infinity, max: 0}
       let philoNum = 0
       this.textData.split("\n").forEach((line) => {
         const found = line.match(regex)
-        if (!found)
-          return ;
+        if (!found) {
+          const forkFound = line.match(forkRegex)
+          if (!forkFound)
+            this.warningMessage = `Invalid log format: "${line}"`
+          return
+        }
         const ms = parseInt(found[1], 10)
         const action = found[4]
         const index = found[2]
