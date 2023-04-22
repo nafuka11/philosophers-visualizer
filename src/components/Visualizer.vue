@@ -54,8 +54,8 @@ export default {
           { type: 'number', id: 'End' }
         ]
       ]
-      const regex = /^(\d+)\s+(\d+) (is (eat|sleep|think)ing|died)$/
-      const forkRegex = /^\d+\s+\d+ has taken a fork$/
+      const regex = /^(\d+)\s+(\d+)\s+(is (eat|sleep|think)ing|died)$/
+      const forkRegex = /^\d+\s+\d+\s+has taken a fork$/
       let prevAction = {}
       let range = {min: Infinity, max: 0}
       let philoNum = 0
