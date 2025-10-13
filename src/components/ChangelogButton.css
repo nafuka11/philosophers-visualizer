@@ -1,0 +1,9 @@
+.changelog-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: unset;
+  text-decoration: underline;
+  padding: 0.5rem;
+}

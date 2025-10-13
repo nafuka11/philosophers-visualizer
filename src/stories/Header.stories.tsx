@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Title } from "../components/Title";
+import { Header } from "../components/Header";
 
-const meta: Meta<typeof Title> = {
+const meta: Meta<typeof Header> = {
   title: "Components/Title",
-  component: Title,
+  component: Header,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Title>;
+type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {};
