@@ -31,7 +31,9 @@ export const Visualizer = () => {
         onChange={setPhiloLogFromTextArea}
         placeholder="timestamp_in_ms X status"
       ></textarea>
-      <button onClick={showTimeline}>generate</button>
+      <button className="visualize-button" onClick={showTimeline}>
+        generate
+      </button>
       {errorMessages.length > 0 && <ErrorMessages errors={errorMessages} />}
       {philoActions.length > 0 && timeRange && (
         <Timeline actions={philoActions} timeRange={timeRange} />

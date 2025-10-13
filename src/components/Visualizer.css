@@ -5,7 +5,7 @@ textarea {
   flex-shrink: 0;
 }
 
-button {
+button.visualize-button {
   padding: 8px 10px;
   margin: 20px 16px 16px 16px;
   width: 300px;
