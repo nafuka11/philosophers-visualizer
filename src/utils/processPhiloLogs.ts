@@ -79,6 +79,9 @@ const addActionToPhiloActions = (
   ms: number,
   philoActions: PhiloAction[]
 ): boolean => {
+  if (!prevActions[philoNum]) {
+    return false;
+  }
   if (prevActions[philoNum].type) {
     philoActions.push({
       philoNum,
