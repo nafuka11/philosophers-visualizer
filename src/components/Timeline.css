@@ -1,0 +1,8 @@
+#graph {
+  position: relative;
+  flex-shrink: 1;
+  overflow: auto;
+  width: 100%;
+  height: auto;
+  padding: 8px;
+}
